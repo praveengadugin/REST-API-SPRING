@@ -1,0 +1,31 @@
+group 'com.benyamephrem'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE') /* Buildscript closure for Spring boot*/
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot' /* Apply the Spring Boot plugin */
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-data-rest' /*Spring Boot REST*/
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa' /* Java Persistence API for DAO */
+    compile 'org.springframework.data:spring-data-rest-hal-browser' /* Spring HAL Browser (Hal: Hypermedia Application Language) */
+                                                                    /* Lets us browse through our API visually*/
+    compile "org.springframework.boot:spring-boot-starter-security" //Spring security
+    compile 'com.h2database:h2'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
